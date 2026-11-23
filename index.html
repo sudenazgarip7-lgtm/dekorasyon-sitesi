@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Melik Dekorasyon | Keçiören, Ankara — İnşaat &amp; İç Mekan Yenileme</title>
+<meta name="description" content="Ankara Keçiören'de anahtar teslim tadilat, alçıpan, boya ve aydınlatma çözümleri. Söz verdiğimiz günde, sıfır toz garantisiyle teslim.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#33453A;
+    --pine-deep:#232E27;
+    --sage:#6E8574;
+    --sage-soft:#9DAE97;
+    --plaster:#F3EEE3;
+    --plaster-warm:#EAE2D1;
+    --walnut:#4A362A;
+    --clay:#A85C3B;
+    --ink:#20241f;
+    --line: rgba(32,36,31,0.16);
+    --line-light: rgba(243,238,227,0.28);
+    --radius: 2px;
+    --maxw: 1180px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:88px;}
+  body{
+    margin:0;
+    font-family:'Manrope',sans-serif;
+    background:var(--plaster);
+    color:var(--ink);
+    overflow-x:hidden;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    margin:0;
+    letter-spacing:-0.01em;
+    color:var(--pine-deep);
+  }
+  p{margin:0;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+  :focus-visible{outline:2px solid var(--clay); outline-offset:3px;}
+
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  .section{padding:96px 0;}
+  @media (max-width:900px){ .section{padding:64px 0;} }
+  .section-head{max-width:640px; margin-bottom:52px;}
+  .kicker{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:1.05rem;
+    color:var(--clay);
+    margin-bottom:10px;
+    display:block;
+  }
+  .section-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem); line-height:1.12;}
+  .section-head p{margin-top:16px; color:var(--walnut); font-size:1.02rem; max-width:52ch;}
+
+  /* ---------- moulding / panel frame motif ---------- */
+  .panel-frame{
+    position:relative;
+    padding:14px;
+    border:1px solid var(--line);
+  }
+  .panel-frame::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:1px solid var(--line);
+    pointer-events:none;
+  }
+  .panel-frame.on-dark{ border-color:var(--line-light); }
+  .panel-frame.on-dark::before{ border-color:var(--line-light); }
+  .panel-frame img{width:100%; height:100%; object-fit:cover; display:block;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 26px;
+    font-size:0.96rem;
+    font-weight:600;
+    border:1px solid transparent;
+    transition:background .18s ease, color .18s ease, border-color .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{ background:var(--clay); color:var(--plaster); }
+  .btn-primary:hover{ background:#8f4c30; }
+  .btn-ghost{ border-color:var(--line); color:var(--pine-deep); background:transparent; }
+  .btn-ghost:hover{ border-color:var(--pine-deep); }
+  .btn-ghost.on-dark{ border-color:var(--line-light); color:var(--plaster); }
+  .btn-ghost.on-dark:hover{ border-color:var(--plaster); }
+  .btn-line{
+    border-bottom:1px solid var(--clay);
+    padding:2px 0;
+    font-weight:600;
+    display:inline-flex;
+    gap:8px;
+    align-items:center;
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(243,238,227,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    height:82px;
+  }
+  .logo{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:1.28rem;
+    color:var(--pine-deep);
+    line-height:1.1;
+  }
+  .logo span{ display:block; font-family:'Manrope',sans-serif; font-weight:600; font-size:0.62rem; letter-spacing:.14em; color:var(--sage); margin-top:2px;}
+  .nav-links{ display:flex; align-items:center; gap:34px; }
+  .nav-links a{
+    font-size:0.94rem; font-weight:600; color:var(--walnut);
+    position:relative; padding:6px 0;
+  }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:1px;
+    background:var(--clay); transform:scaleX(0); transform-origin:left;
+    transition:transform .2s ease;
+  }
+  .nav-links a:hover::after{ transform:scaleX(1); }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+  .phone-pill{
+    display:flex; align-items:center; gap:8px;
+    font-weight:700; font-size:0.94rem; color:var(--pine-deep);
+  }
+  .phone-pill svg{ flex-shrink:0; }
+  .hamburger{
+    display:none;
+    width:40px; height:40px;
+    border:1px solid var(--line);
+    background:transparent;
+    align-items:center; justify-content:center;
+    flex-direction:column; gap:5px;
+  }
+  .hamburger span{ display:block; width:18px; height:1.5px; background:var(--pine-deep); }
+
+  @media (max-width:900px){
+    .nav-links{
+      position:fixed; top:82px; left:0; right:0; bottom:0;
+      background:var(--plaster);
+      flex-direction:column; align-items:flex-start; gap:0;
+      padding:8px 20px 32px;
+      transform:translateX(100%);
+      transition:transform .28s ease;
+      overflow-y:auto;
+    }
+    .nav-links.open{ transform:translateX(0); }
+    .nav-links a{ width:100%; padding:16px 0; border-bottom:1px solid var(--line); font-size:1.05rem; }
+    .nav-links a::after{ display:none; }
+    .nav-links .nav-mobile-cta{ margin-top:20px; width:100%; }
+    .hamburger{ display:flex; }
+    .phone-pill.desktop-only{ display:none; }
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:150px 0 90px;
+    background:var(--plaster);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-eyebrow{
+    font-family:'Fraunces',serif; font-style:italic; color:var(--clay);
+    font-size:1.05rem; margin-bottom:18px; display:block;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,4.6vw,3.6rem);
+    line-height:1.08;
+  }
+  .hero h1 em{ font-style:italic; color:var(--sage); }
+  .hero-sub{
+    margin-top:22px; font-size:1.08rem; color:var(--walnut); max-width:46ch;
+  }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:34px; }
+  .hero-stats{
+    display:flex; gap:40px; margin-top:52px; padding-top:28px; border-top:1px solid var(--line);
+  }
+  .hero-stats div strong{ display:block; font-family:'Fraunces',serif; font-size:1.7rem; color:var(--pine-deep); }
+  .hero-stats div span{ font-size:0.84rem; color:var(--walnut); }
+  .hero-visual{ position:relative; }
+  .hero-visual .panel-frame{ aspect-ratio:4/5; background:var(--pine-deep); }
+  .hero-tag{
+    position:absolute; left:-18px; bottom:-22px;
+    background:var(--pine-deep); color:var(--plaster);
+    padding:18px 22px; max-width:230px;
+    font-size:0.86rem; line-height:1.45;
+  }
+  .hero-tag strong{ display:block; font-family:'Fraunces',serif; font-size:1.1rem; margin-bottom:4px; }
+  @media (max-width:900px){
+    .hero{ padding:126px 0 64px; }
+    .hero-grid{ grid-template-columns:1fr; gap:44px; }
+    .hero-tag{ position:static; margin-top:18px; max-width:none; }
+    .hero-stats{ flex-wrap:wrap; row-gap:20px; }
+  }
+
+  /* ---------- about ---------- */
+  .about{ background:var(--pine-deep); color:var(--plaster); }
+  .about .kicker{ color:var(--sage-soft); }
+  .about .section-head h2{ color:var(--plaster); }
+  .about .section-head p{ color:rgba(243,238,227,0.78); }
+  .about-grid{ display:grid; grid-template-columns:0.85fr 1.15fr; gap:60px; align-items:start; }
+  .about-visual .panel-frame{ aspect-ratio:1/1; }
+  .about-copy p{ color:rgba(243,238,227,0.82); font-size:1.02rem; margin-bottom:20px; }
+  .value-list{ display:grid; gap:20px; margin-top:32px; }
+  .value-item{ display:flex; gap:16px; align-items:flex-start; border-top:1px solid var(--line-light); padding-top:18px; }
+  .value-item h4{ color:var(--plaster); font-size:1.05rem; margin-bottom:6px; }
+  .value-item p{ color:rgba(243,238,227,0.72); font-size:0.94rem; }
+  .value-mark{ font-family:'Fraunces',serif; font-style:italic; color:var(--clay); font-size:1.3rem; line-height:1; flex-shrink:0; }
+  @media (max-width:900px){ .about-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- services ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--plaster);
+    padding:38px 30px;
+    min-height:210px;
+    display:flex; flex-direction:column; justify-content:space-between;
+    transition:background .2s ease;
+  }
+  .service-card:hover{ background:var(--plaster-warm); }
+  .service-num{ font-family:'Fraunces',serif; font-style:italic; color:var(--sage); font-size:0.95rem; }
+  .service-card h3{ font-size:1.28rem; margin-top:28px; }
+  .service-card p{ margin-top:10px; color:var(--walnut); font-size:0.92rem; }
+  @media (max-width:900px){ .services-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .services-grid{ grid-template-columns:1fr;} }
+
+  /* ---------- gallery ---------- */
+  .gallery-tabs{ display:flex; gap:10px; margin-bottom:32px; flex-wrap:wrap; }
+  .gallery-tab{
+    padding:9px 18px; font-size:0.88rem; font-weight:600; color:var(--walnut);
+    border:1px solid var(--line); background:transparent;
+  }
+  .gallery-tab.active{ background:var(--pine-deep); color:var(--plaster); border-color:var(--pine-deep); }
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+  }
+  .gallery-item{ cursor:pointer; }
+  .gallery-item .panel-frame{ aspect-ratio:3/4; padding:8px; }
+  .gallery-item .panel-frame::before{ inset:5px; }
+  .gallery-item figcaption{ margin-top:8px; font-size:0.82rem; color:var(--walnut); }
+  .gallery-item[hidden]{ display:none; }
+  @media (max-width:900px){ .gallery-grid{ grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:640px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); gap:10px;} }
+
+  /* lightbox */
+  .lightbox{
+    position:fixed; inset:0; background:rgba(24,28,22,0.94);
+    display:none; align-items:center; justify-content:center;
+    z-index:200; padding:40px 20px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox-inner{ position:relative; max-width:900px; width:100%; }
+  .lightbox-inner img{ width:100%; max-height:80vh; object-fit:contain; border:1px solid var(--line-light); }
+  .lightbox-close{
+    position:absolute; top:-46px; right:0; background:transparent; border:none;
+    color:var(--plaster); font-size:1.8rem; line-height:1;
+  }
+  .lightbox-cap{ color:var(--plaster); text-align:center; margin-top:14px; font-size:0.9rem; }
+  .lightbox-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    background:transparent; border:1px solid var(--line-light); color:var(--plaster);
+    width:42px; height:42px; font-size:1.1rem;
+  }
+  .lightbox-prev{ left:-56px; }
+  .lightbox-next{ right:-56px; }
+  @media (max-width:760px){
+    .lightbox-prev{ left:0; top:auto; bottom:-52px; transform:none; }
+    .lightbox-next{ right:0; top:auto; bottom:-52px; transform:none; }
+  }
+
+  /* ---------- faq ---------- */
+  .faq-section{ background:var(--plaster-warm); }
+  .faq-list{ border-top:1px solid var(--line); max-width:820px; }
+  .faq-item{ border-bottom:1px solid var(--line); }
+  .faq-q{
+    width:100%; background:transparent; border:none; text-align:left;
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+    padding:24px 4px; font-family:'Fraunces',serif; font-size:1.1rem; color:var(--pine-deep);
+  }
+  .faq-icon{ position:relative; width:18px; height:18px; flex-shrink:0; }
+  .faq-icon::before, .faq-icon::after{
+    content:""; position:absolute; background:var(--clay); top:50%; left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .faq-icon::before{ width:14px; height:1.5px; }
+  .faq-icon::after{ width:1.5px; height:14px; transition:transform .2s ease; }
+  .faq-item.open .faq-icon::after{ transform:translate(-50%,-50%) rotate(90deg) scaleY(0); }
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .28s ease;
+  }
+  .faq-a p{ padding:0 4px 24px; color:var(--walnut); font-size:0.98rem; max-width:65ch; }
+
+  /* ---------- testimonials ---------- */
+  .testi-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .testi-card{ border-top:2px solid var(--pine-deep); padding-top:22px; }
+  .stars{ color:var(--clay); font-size:0.95rem; letter-spacing:2px; margin-bottom:16px; }
+  .testi-card p{ font-size:1rem; color:var(--walnut); }
+  .testi-name{ display:block; margin-top:20px; font-family:'Fraunces',serif; font-weight:600; color:var(--pine-deep); }
+  @media (max-width:900px){ .testi-grid{ grid-template-columns:1fr; gap:36px; } }
+
+  /* ---------- contact ---------- */
+  .contact{ background:var(--pine-deep); color:var(--plaster); }
+  .contact .kicker{ color:var(--sage-soft); }
+  .contact .section-head h2{ color:var(--plaster); }
+  .contact .section-head p{ color:rgba(243,238,227,0.78); }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .contact-info-list{ display:grid; gap:24px; margin-top:8px; }
+  .contact-info-item{ display:flex; gap:16px; padding-bottom:22px; border-bottom:1px solid var(--line-light); }
+  .contact-info-item svg{ flex-shrink:0; margin-top:3px; }
+  .contact-info-item strong{ display:block; font-size:0.8rem; letter-spacing:.04em; color:var(--sage-soft); margin-bottom:4px; }
+  .contact-info-item a, .contact-info-item span{ font-size:1.02rem; color:var(--plaster); }
+  .contact-form{ display:grid; gap:18px; }
+  .field label{ display:block; font-size:0.85rem; margin-bottom:8px; color:var(--sage-soft); }
+  .field input, .field textarea{
+    width:100%; background:transparent; border:1px solid var(--line-light);
+    padding:13px 14px; color:var(--plaster); font-family:inherit; font-size:0.98rem;
+  }
+  .field input::placeholder, .field textarea::placeholder{ color:rgba(243,238,227,0.4); }
+  .field textarea{ resize:vertical; min-height:110px; }
+  .form-note{ font-size:0.8rem; color:rgba(243,238,227,0.55); }
+  @media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; gap:40px; } }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--pine-deep); border-top:1px solid var(--line-light); padding:28px 0; }
+  .footer-row{ display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+  .footer-row p{ color:rgba(243,238,227,0.55); font-size:0.85rem; }
+  .footer-row a{ color:rgba(243,238,227,0.75); font-size:0.85rem; }
+
+  /* floating whatsapp */
+  .float-wa{
+    position:fixed; bottom:22px; right:22px; z-index:90;
+    width:56px; height:56px; border-radius:50%;
+    background:#3f5a44; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+  }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion:reduce){
+    *{ transition:none !important; scroll-behavior:auto !important; }
+    .reveal{ opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#anasayfa" class="logo">Melik Dekorasyon<span>KEÇİÖREN · ANKARA</span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#anasayfa">Anasayfa</a>
+      <a href="#biz-kimiz">Biz Kimiz</a>
+      <a href="#hizmetlerimiz">Hizmetlerimiz</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#sss">SSS</a>
+      <a href="#iletisim">İletişim</a>
+      <a href="tel:+905304659942" class="btn btn-primary nav-mobile-cta">Hemen Ara</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+905304659942" class="phone-pill desktop-only">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0530 465 99 42
+      </a>
+      <a href="tel:+905304659942" class="btn btn-primary" style="display:none" id="desktopCallBtn">Hemen Ara</a>
+      <button class="hamburger" id="hamburger" aria-label="Menüyü aç" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" id="anasayfa">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="hero-eyebrow">Ankara Keçiören'in güvenilir esnafı</span>
+        <h1>Keçiören'de <em>hayalinizdeki evi</em> gerçeğe dönüştürüyoruz.</h1>
+        <p class="hero-sub">Alçı, boya ve aydınlatmadan anahtar teslim tadilata kadar; söz verdiğimiz günde, sıfır toz garantisiyle teslim ediyoruz.</p>
+        <div class="hero-actions">
+          <a href="tel:+905304659942" class="btn btn-primary">Ücretsiz Keşif İsteyin</a>
+          <a href="#galeri" class="btn btn-ghost">İşlerimizi Görün</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong>15+</strong><span>Yıllık Sektör Tecrübesi</span></div>
+          <div><strong>0</strong><span>Toz Garantisiyle Teslim</span></div>
+          <div><strong>A–Z</strong><span>Tek Çatı Altında Çözüm</span></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="panel-frame">
+          <img src="https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?q=80&w=1200&auto=format&fit=crop" alt="Melik Dekorasyon tarafından yenilenen oturma odası, ahşap kaplama TV ünitesi ve gizli aydınlatma">
+        </div>
+        <div class="hero-tag">
+          <strong>Sıfır Toz Prensibi</strong>
+          Eşyalı evlerde brandayla koruma altına alarak, tertemiz bir teslim sağlıyoruz.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about" id="biz-kimiz">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-visual reveal">
+          <div class="panel-frame on-dark">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1000&auto=format&fit=crop" alt="Beyaz duvar paneli ve kartonpiyer detayı ile aydınlık bir yemek odası">
+          </div>
+        </div>
+        <div class="about-copy reveal">
+          <span class="kicker">Biz Kimiz?</span>
+          <h2 style="font-size:clamp(1.8rem,3vw,2.4rem); margin-bottom:20px;">Bir "inşaat işi" değil, bir yuva güzelleştirme hikayesi.</h2>
+          <p>Melik Dekorasyon olarak, Ankara Keçiören başta olmak üzere şehrin dört bir yanındaki yaşam alanlarına estetik, konfor ve değer katmak için yola çıktık. Evinizin sadece dört duvardan ibaret olmadığını, sevdiklerinizle en güzel anıları biriktirdiğiniz bir yuva olduğunu çok iyi biliyoruz.</p>
+          <p>Yılların getirdiği sektör tecrübesini modern iç mimari trendleriyle harmanlayan uzman kadromuzla; anahtar teslim tadilat, boya-badana uygulamaları ve birinci sınıf parke çözümleri sunuyoruz. Kaliteli malzemeden ve kusursuz işçilikten ödün vermeden, taahhüt ettiğimiz günde evinizi teslim ediyoruz.</p>
+          <div class="value-list">
+            <div class="value-item">
+              <span class="value-mark">01</span>
+              <div><h4>Keçiören'in güvenilir esnafı</h4><p>Bölgenin ihtiyaçlarını ve mimari yapısını analiz ederek bütçenize en uygun çözümü üretiyoruz.</p></div>
+            </div>
+            <div class="value-item">
+              <span class="value-mark">02</span>
+              <div><h4>Sıfır toz, maksimum özen</h4><p>Yaşam alanlarınızı yenilerken eşyalarınızı özenle koruyor, temiz ve titiz çalışıyoruz.</p></div>
+            </div>
+            <div class="value-item">
+              <span class="value-mark">03</span>
+              <div><h4>A'dan Z'ye tek çatı altında</h4><p>Boyasından parkesine, mutfak tezgahından kartonpiyerine kadar tüm ihtiyaçlarınızı tek elden çözüyoruz.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="hizmetlerimiz">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Hizmetlerimiz</span>
+        <h2>Kataloğa bakıp karar veremiyor musunuz?</h2>
+        <p>Evinizin ışığına ve mevcut mobilyalarınıza en uygun renk ve malzeme kombinasyonlarını uzman ekibimizle birlikte seçiyoruz.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0 28px;">
+      <div class="services-grid reveal">
+        <div class="service-card">
+          <span class="service-num">Alçı</span>
+          <div><h3>Alçı Uygulamaları</h3><p>Tavan ve duvarlarda pürüzsüz, kalıcı yüzeyler için usta işçiliği.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">Alçıpan</span>
+          <div><h3>Alçıpan &amp; Kartonpiyer</h3><p>Gizli aydınlatmalı asma tavan ve duvar paneli tasarımları.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">Boya</span>
+          <div><h3>Boya &amp; Badana</h3><p>Birinci sınıf malzemeyle temiz, hızlı ve dayanıklı boya uygulaması.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">Işıklandırma</span>
+          <div><h3>Aydınlatma Çözümleri</h3><p>Led şerit ve spot sistemleriyle mekana derinlik katan ışık tasarımı.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">Tasarım</span>
+          <div><h3>İç Mimari Tasarım</h3><p>Renk ve malzeme seçiminde baştan sona uzman ekip desteği.</p></div>
+        </div>
+        <div class="service-card">
+          <span class="service-num">Dekorasyon</span>
+          <div><h3>Anahtar Teslim Dekorasyon</h3><p>Keşiften teslimata, söz verdiğimiz günde eksiksiz tamamlanan projeler.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section" id="galeri" style="background:var(--plaster);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Portfolyo &amp; Galeri</span>
+        <h2>Temiz bir şekilde yaptığımız işi, temiz bir şekilde size teslim ediyoruz.</h2>
+        <p>Keçiören ve çevresinde tamamladığımız projelerden seçmeler.</p>
+      </div>
+      <div class="gallery-tabs reveal" id="galleryTabs">
+        <button class="gallery-tab active" data-filter="all">Tümü</button>
+        <button class="gallery-tab" data-filter="salon">Salon &amp; Yemek Odası</button>
+        <button class="gallery-tab" data-filter="duvar">Duvar Paneli</button>
+        <button class="gallery-tab" data-filter="aydinlatma">Aydınlatma</button>
+        <button class="gallery-tab" data-filter="banyo">Banyo</button>
+      </div>
+      <div class="gallery-grid reveal" id="galleryGrid">
+        <!-- items injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section" id="sss">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Sıkça Sorulan Sorular</span>
+        <h2>Merak ettikleriniz</h2>
+      </div>
+      <div class="faq-list reveal" id="faqList"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section" id="yorumlar">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Memnuniyet Tablomuz</span>
+        <h2>Müşterilerimiz ne diyor?</h2>
+      </div>
+      <div class="testi-grid reveal">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Aşağı Eğlence'deki 3+1 evimizin salon alçıpan, ışıklandırma ve tüm boya işleri için Melik Dekorasyon ile anlaştık. Eşyalı evde tadilat yaptırmaktan çok korkuyorduk ama eşyalarımızı harika bir şekilde muhafaza ettiler. Ferit Bey ve ekibine usta işçilikleri için çok teşekkür ederim."</p>
+          <span class="testi-name">Abdullah Ö.</span>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Atapark'taki evimizin parkelerini yenileyip duvarlara çıtalama yaptırdık. Daha önceki evimizde de Ferit Bey'i tercih etmiştik. Yıllardır hiç değişmediler."</p>
+          <span class="testi-name">Emre S.</span>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p>"Sanatoryum Caddesi üzerindeki evimizin salon ve koridor tadilatı için aradık. Aynı gün gelip ücretsiz keşif yaptılar ve net bir fiyat çıkardılar. Süreç boyunca kafamıza takılan her soruyu sabırla yanıtladılar. İçimize çok sinen, tertemiz bir iş oldu."</p>
+          <span class="testi-name">Merve A.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="iletisim">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">İletişim</span>
+        <h2>Fikirlerinizi bizimle paylaşın</h2>
+        <p>Ücretsiz keşif ve fiyat teklifi için bize ulaşın — Ankara Keçiören ve çevresine hizmet veriyoruz.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-info-list">
+            <div class="contact-info-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div><strong>Telefon</strong><a href="tel:+905304659942">0530 465 99 42</a></div>
+            </div>
+            <div class="contact-info-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <div><strong>WhatsApp</strong><a href="https://wa.me/905304659942" target="_blank" rel="noopener">0530 465 99 42</a></div>
+            </div>
+            <div class="contact-info-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg>
+              <div><strong>E-posta</strong><a href="mailto:sedadekorasyon06@gmail.com">sedadekorasyon06@gmail.com</a></div>
+            </div>
+            <div class="contact-info-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><strong>Adres</strong><span>Aşağı Eğlence, Melek Sk. 6A, 06010 Keçiören, Ankara</span></div>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contactForm">
+          <div class="field">
+            <label for="adSoyad">Ad Soyad</label>
+            <input type="text" id="adSoyad" name="adSoyad" placeholder="Adınız Soyadınız" required>
+          </div>
+          <div class="field">
+            <label for="konu">Konu</label>
+            <input type="text" id="konu" name="konu" placeholder="Örn: Salon tadilatı için keşif" required>
+          </div>
+          <div class="field">
+            <label for="detay">Detaylar</label>
+            <textarea id="detay" name="detay" placeholder="Projenizden kısaca bahsedin"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="justify-content:center;">Gönder</button>
+          <p class="form-note" id="formNote">Bilgileriniz yalnızca size dönüş yapmak için kullanılır.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <p>© <span id="year"></span> Melik Dekorasyon — Keçiören, Ankara. Tüm hakları saklıdır.</p>
+    <a href="tel:+905304659942">0530 465 99 42</a>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/905304659942" target="_blank" rel="noopener" aria-label="WhatsApp'tan yazın">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#F3EEE3"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.81L2 22l5.4-1.41a9.87 9.87 0 0 0 4.64 1.18h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.14-4.9-4.33-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.12.57.17.29.75 1.24 1.61 2.01 1.11.99 2.04 1.3 2.33 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.35z"/></svg>
+</a>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lbClose" aria-label="Kapat">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lbPrev" aria-label="Önceki">‹</button>
+    <img id="lbImage" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lbNext" aria-label="Sonraki">›</button>
+    <p class="lightbox-cap" id="lbCaption"></p>
+  </div>
+</div>
+
+<script>
+(function(){
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // header CTA swap
+  document.getElementById('desktopCallBtn').style.display = window.innerWidth > 900 ? 'inline-flex' : 'none';
+  window.addEventListener('resize', function(){
+    document.getElementById('desktopCallBtn').style.display = window.innerWidth > 900 ? 'inline-flex' : 'none';
+  });
+
+  // hamburger menu
+  var hamburger = document.getElementById('hamburger');
+  var navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', function(){
+    var isOpen = navLinks.classList.toggle('open');
+    hamburger.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      navLinks.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  // gallery data
+  var galleryData = [
+    {src:"https://images.unsplash.com/photo-1618221469555-7f3ad97540d6?q=80&w=1200&auto=format&fit=crop", cat:"salon", title:"Modern TV ünitesi ve gizli aydınlatma"},
+    {src:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=1200&auto=format&fit=crop", cat:"duvar", title:"Beyaz duvar paneli ve ayna detayı"},
+    {src:"https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1200&auto=format&fit=crop", cat:"salon", title:"Bitki ve doğal ışıkla yemek odası"},
+    {src:"https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=1200&auto=format&fit=crop", cat:"duvar", title:"Kahverengi koltuk ve panel duvar"},
+    {src:"https://images.unsplash.com/photo-1560184611-ff3e53f00e8f?q=80&w=1200&auto=format&fit=crop", cat:"aydinlatma", title:"Gizli LED şeritli asma tavan"},
+    {src:"https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?q=80&w=1200&auto=format&fit=crop", cat:"aydinlatma", title:"Spot aydınlatmalı koridor paneli"},
+    {src:"https://images.unsplash.com/photo-1620626011761-996317b8d101?q=80&w=1200&auto=format&fit=crop", cat:"banyo", title:"Mermer dokulu banyo ve duş kabini"},
+    {src:"https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=1200&auto=format&fit=crop", cat:"banyo", title:"Aydınlık banyo ve ayna aydınlatması"}
+  ];
+  var galleryGrid = document.getElementById('galleryGrid');
+  galleryData.forEach(function(item, idx){
+    var fig = document.createElement('figure');
+    fig.className = 'gallery-item';
+    fig.setAttribute('data-cat', item.cat);
+    fig.setAttribute('data-idx', idx);
+    fig.innerHTML =
+      '<div class="panel-frame"><img src="'+item.src+'" alt="'+item.title+'" loading="lazy"></div>' +
+      '<figcaption>'+item.title+'</figcaption>';
+    galleryGrid.appendChild(fig);
+  });
+
+  // gallery filter
+  var tabs = document.querySelectorAll('.gallery-tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var filter = tab.getAttribute('data-filter');
+      document.querySelectorAll('.gallery-item').forEach(function(item){
+        var show = filter === 'all' || item.getAttribute('data-cat') === filter;
+        item.hidden = !show;
+      });
+    });
+  });
+
+  // lightbox
+  var lightbox = document.getElementById('lightbox');
+  var lbImage = document.getElementById('lbImage');
+  var lbCaption = document.getElementById('lbCaption');
+  var currentIdx = 0;
+
+  function openLightbox(idx){
+    currentIdx = idx;
+    var item = galleryData[idx];
+    lbImage.src = item.src;
+    lbImage.alt = item.title;
+    lbCaption.textContent = item.title;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function showRelative(delta){
+    currentIdx = (currentIdx + delta + galleryData.length) % galleryData.length;
+    var item = galleryData[currentIdx];
+    lbImage.src = item.src;
+    lbImage.alt = item.title;
+    lbCaption.textContent = item.title;
+  }
+
+  galleryGrid.addEventListener('click', function(e){
+    var fig = e.target.closest('.gallery-item');
+    if (!fig) return;
+    openLightbox(parseInt(fig.getAttribute('data-idx'), 10));
+  });
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbPrev').addEventListener('click', function(){ showRelative(-1); });
+  document.getElementById('lbNext').addEventListener('click', function(){ showRelative(1); });
+  lightbox.addEventListener('click', function(e){ if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', function(e){
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showRelative(-1);
+    if (e.key === 'ArrowRight') showRelative(1);
+  });
+
+  // FAQ accordion
+  var faqData = [
+    {q:"Tadilat süresi ortalama kaç gün sürüyor?", a:"Projenin kapsamına bağlı olarak değişmektedir. Keşif sonrasında size net bir teslim tarihi veriyor ve söz verdiğimiz günde teslimatı gerçekleştiriyoruz. İş yoğunluğuna göre çalışma sürelerimiz 1-3 hafta arası değişiklik göstermektedir."},
+    {q:"Keşif ve fiyat teklifi ücretli mi?", a:"Ankara Keçiören ve çevresindeki tüm keşif ile fiyatlandırma hizmetlerimiz tamamen ücretsizdir."},
+    {q:"Eşyalı evlerde çalışma yapıyor musunuz? Eşyalarım zarar görür mü?", a:"Evet, eşyalı evlerde özenle çalışıyoruz. Tüm eşyalarınızı koruyucu brandalarla muhafaza ediyor, \u201Csıfır toz\u201D prensibimizle evinizi temiz bir şekilde teslim ediyoruz."},
+    {q:"Malzemeleri siz mi getiriyorsunuz, biz mi alıyoruz?", a:"Dilerseniz A'dan Z'ye birinci sınıf kaliteli malzemeleri biz temin ediyoruz, dilerseniz sadece işçilik hizmeti sağlıyoruz."},
+    {q:"Kataloğa bakıp renk ve malzeme seçmekte kararsız kalırsak yardımcı oluyor musunuz?", a:"Kesinlikle! Uzman ekibimizle evinizin ışığına, büyüklüğüne ve mevcut mobilyalarınıza en uygun renk kombinasyonlarını ve malzeme seçeneklerini birlikte belirliyoruz."},
+    {q:"Yapılan işçilik ve kullanılan malzemeler garantili mi?", a:"Evet, tüm uygulamalarımızda birinci sınıf kaliteli malzemeler kullanıyor ve usta işçiliğimize güveniyoruz. Teslimat sonrasında oluşabilecek her türlü durumda müşterilerimizin arkasındayız."},
+    {q:"Bütçeme uygun bir tadilat paketi oluşturabilir misiniz?", a:"Bölgenin ihtiyaçlarını ve bütçe beklentilerini çok iyi analiz ediyoruz. Ücretsiz keşif sırasında önceliklerinizi belirleyip bütçenizi aşmayacak en kaliteli ve ekonomik çözümleri sunuyoruz."}
+  ];
+  var faqList = document.getElementById('faqList');
+  faqData.forEach(function(item){
+    var wrap = document.createElement('div');
+    wrap.className = 'faq-item';
+    wrap.innerHTML =
+      '<button class="faq-q"><span>'+item.q+'</span><span class="faq-icon"></span></button>' +
+      '<div class="faq-a"><p>'+item.a+'</p></div>';
+    faqList.appendChild(wrap);
+  });
+  faqList.addEventListener('click', function(e){
+    var btn = e.target.closest('.faq-q');
+    if (!btn) return;
+    var item = btn.parentElement;
+    var answer = item.querySelector('.faq-a');
+    var isOpen = item.classList.contains('open');
+    faqList.querySelectorAll('.faq-item.open').forEach(function(openItem){
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if (!isOpen){
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+
+  // contact form (no backend — friendly confirmation)
+  var form = document.getElementById('contactForm');
+  var note = document.getElementById('formNote');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    note.textContent = 'Teşekkürler! Mesajınız alındı, en kısa sürede size dönüş yapacağız.';
+    note.style.color = '#9DAE97';
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
